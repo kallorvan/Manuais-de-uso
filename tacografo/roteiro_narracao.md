@@ -27,7 +27,6 @@ Texto para o ElevenLabs, separado por slide. Cada bloco vira um áudio, que acom
 
 **Duração total estimada:** ~4 min 35 s
 
-
 ## Slide 1: Tacógrafo Digital
 
 Olá! Neste manual, você vai aprender, passo a passo, a usar o tacógrafo digital do veículo para cadastrar um novo motorista, conectar o motorista antes de iniciar a viagem e desconectar ao final da jornada. É rápido e simples. Vamos lá?
