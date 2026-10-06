@@ -37,7 +37,7 @@ TELAS = {
     "02_gerenciamento": dict(lines=["GERENCIAMENTO", "DA LISTA DE", "MOTORISTA"], icon="±", press=["U", "D", "OK"]),
     "03_remover":       dict(lines=["REMOVER", "CÓDIGO DO", "MOTORISTA"], press=["D"]),
     "04_cadastrar":     dict(lines=["CADASTRAR", "CÓDIGO DO", "MOTORISTA"], press=["OK"]),
-    "05_bvdr":          dict(lines=["GRAVAR INFORMAÇÃO", "DO MOTORISTA", "NO BVDR?", "NÃO        SIM"], press=["U", "D", "OK"]),
+    "05_bvdr":          dict(lines=["GRAVAR INFORMAÇÃO", "DO MOTORISTA", "NO BVDR?", ["NÃO", ("SIM", "inv")]], press=["D", "OK"]),
     "06_codigo":        dict(lines=["DIGITE O NOVO CÓDIGO", "DO MOTORISTA", "90***"], press=["U", "D", "OK"]),
     "07_cnh_vazio":     dict(lines=["DIGITE A HABILITAÇÃO", "DO MOTORISTA", "***********"], press=["U", "D", "OK"]),
     "08_cnh":           dict(lines=["DIGITE A HABILITAÇÃO", "DO MOTORISTA", "11111111000"], press=["OK"]),

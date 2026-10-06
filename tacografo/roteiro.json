@@ -133,20 +133,19 @@
       "tipo": "passo",
       "parte": "Cadastrar",
       "passo": 3,
-      "titulo": "Gravar informação no BVDR",
+      "titulo": "Grave a informação no BVDR",
       "imagens": [
         "05_bvdr.jpg"
       ],
       "instrucoes": [
         "O tacógrafo pergunta: GRAVAR INFORMAÇÃO DO MOTORISTA NO BVDR?",
-        "Escolha NÃO ou SIM com ▲ ou ▼, conforme a orientação da empresa, e pressione OK"
+        "Selecione SIM com ▼ e pressione OK"
       ],
       "botoes": [
-        "▲",
         "▼",
         "OK"
       ],
-      "narracao": "O tacógrafo vai perguntar se deseja gravar a informação do motorista no BVDR. Escolha a resposta com as setas, de acordo com a orientação da sua empresa, e confirme com OK."
+      "narracao": "O tacógrafo vai perguntar se deseja gravar a informação do motorista no B V D R. Selecione a opção Sim, usando a seta para baixo, e confirme com OK."
     },
     {
       "id": 8,
@@ -192,7 +191,7 @@
         "▼",
         "OK"
       ],
-      "narracao": "Na sequência, aparece a tela Digite a habilitação do motorista. Informe o número da CNH usando o mesmo método: as setas escolhem o número e o OK avança para o próximo dígito, até preencher o campo inteiro."
+      "narracao": "Na sequência, aparece a tela Digite a habilitação do motorista. Informe o número da C N H usando o mesmo método: as setas escolhem o número e o OK avança para o próximo dígito, até preencher o campo inteiro."
     },
     {
       "id": 10,
@@ -212,7 +211,7 @@
         "▼",
         "OK"
       ],
-      "narracao": "O tacógrafo mostra o código e o número da CNH digitados. Confira com atenção. Se estiver tudo certo, selecione Sim e pressione OK. Se houver algum erro, escolha Não e digite novamente."
+      "narracao": "O tacógrafo mostra o código e o número da C N H digitados. Confira com atenção. Se estiver tudo certo, selecione Sim e pressione OK. Se houver algum erro, escolha Não e digite novamente."
     },
     {
       "id": 11,
@@ -351,7 +350,7 @@
         "▼",
         "OK"
       ],
-      "narracao": "Confira o código e a CNH, selecione Sim e pressione OK. De volta à tela inicial, observe que o seu código agora aparece no canto direito. Isso indica que você está conectado e pronto para iniciar a viagem."
+      "narracao": "Confira o código e a C N H, selecione Sim e pressione OK. De volta à tela inicial, observe que o seu código agora aparece no canto direito. Isso indica que você está conectado e pronto para iniciar a viagem."
     },
     {
       "id": 18,
@@ -415,7 +414,7 @@
         "Faça os procedimentos com o veículo parado",
         "Sempre confira o código na tela inicial antes de sair"
       ],
-      "narracao": "Recapitulando: para cadastrar, acesse Gerenciamento da lista, escolha Cadastrar, informe o código e a CNH e confirme. Para conectar, vá ao Menu do motorista, escolha Conecte-se, depois Lista de motoristas, selecione o seu código e confirme. Para desconectar, vá ao Menu do motorista e confirme a desconexão. Lembre-se: faça tudo com o veículo parado e sempre confira o seu código na tela inicial antes de sair. Boa viagem!"
+      "narracao": "Recapitulando: para cadastrar, acesse Gerenciamento da lista, escolha Cadastrar, informe o código e a C N H e confirme. Para conectar, vá ao Menu do motorista, escolha Conecte-se, depois Lista de motoristas, selecione o seu código e confirme. Para desconectar, vá ao Menu do motorista e confirme a desconexão. Lembre-se: faça tudo com o veículo parado e sempre confira o seu código na tela inicial antes de sair. Boa viagem!"
     },
     {
       "id": 21,
