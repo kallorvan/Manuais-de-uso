@@ -10,7 +10,7 @@
 
 O slide 21 (encerramento com as logos) não tem narração: ele fica alguns segundos na tela no final do vídeo.
 
-**Duração total estimada:** ~4 min 38 s
+**Duração total estimada:** ~4 min 48 s
 
 | Arquivo | Slide | Duração estimada |
 |---|---|---|
@@ -21,7 +21,7 @@ O slide 21 (encerramento com as logos) não tem narração: ele fica alguns segu
 | audio_05.mp3 | 5. Acesse o gerenciamento da lista | ~11s |
 | audio_06.mp3 | 6. Escolha Cadastrar código do motorista | ~15s |
 | audio_07.mp3 | 7. Grave a informação no BVDR | ~12s |
-| audio_08.mp3 | 8. Digite o código do motorista | ~17s |
+| audio_08.mp3 | 8. Digite o código do motorista | ~27s |
 | audio_09.mp3 | 9. Digite o número da CNH | ~16s |
 | audio_10.mp3 | 10. Confira e confirme os dados | ~14s |
 | audio_11.mp3 | 11. Motorista cadastrado | ~10s |
@@ -80,7 +80,7 @@ O tacógrafo vai perguntar se deseja gravar a informação do motorista no B V D
 ## audio_08.mp3 · Slide 8: Digite o código do motorista
 
 ```text
-Agora, digite o código do motorista. Use as setas para escolher o número de cada dígito e pressione OK para passar para o próximo. Repita até completar o código. No exemplo, o código utilizado foi nove nove nove nove nove.
+Agora, digite o código do motorista. Ele é formado pelos cinco primeiros dígitos do C P F do motorista. Use as setas para escolher o número de cada dígito e pressione OK para passar para o próximo, até completar os cinco dígitos. No exemplo, o C P F começa com nove nove nove nove nove, então o código é nove nove nove nove nove.
 ```
 
 ## audio_09.mp3 · Slide 9: Digite o número da CNH

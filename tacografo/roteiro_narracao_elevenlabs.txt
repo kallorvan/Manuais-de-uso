@@ -20,7 +20,7 @@ Dentro desse menu existem duas opções: Remover código do motorista, que exclu
 O tacógrafo vai perguntar se deseja gravar a informação do motorista no B V D R. Selecione a opção Sim, usando a seta para baixo, e confirme com OK.
 
 [audio_08.mp3]
-Agora, digite o código do motorista. Use as setas para escolher o número de cada dígito e pressione OK para passar para o próximo. Repita até completar o código. No exemplo, o código utilizado foi nove nove nove nove nove.
+Agora, digite o código do motorista. Ele é formado pelos cinco primeiros dígitos do C P F do motorista. Use as setas para escolher o número de cada dígito e pressione OK para passar para o próximo, até completar os cinco dígitos. No exemplo, o C P F começa com nove nove nove nove nove, então o código é nove nove nove nove nove.
 
 [audio_09.mp3]
 Na sequência, aparece a tela Digite a habilitação do motorista. Informe o número da C N H usando o mesmo método: as setas escolhem o número e o OK avança para o próximo dígito, até preencher o campo inteiro.

@@ -188,20 +188,20 @@
         "06_codigo.jpg"
       ],
       "instrucoes": [
-        "Use ▲ ou ▼ para escolher o número de cada dígito",
-        "Pressione OK para passar ao próximo dígito",
-        "Repita até completar o código (no exemplo, 99999)"
+        "O código são os 5 primeiros dígitos do CPF do motorista",
+        "Use ▲ ou ▼ para escolher cada número e OK para avançar",
+        "Exemplo: CPF que começa com 999.99 → código 99999"
       ],
       "botoes": [
         "▲",
         "▼",
         "OK"
       ],
-      "narracao": "Agora, digite o código do motorista. Use as setas para escolher o número de cada dígito e pressione OK para passar para o próximo. Repita até completar o código. No exemplo, o código utilizado foi nove nove nove nove nove.",
+      "narracao": "Agora, digite o código do motorista. Ele é formado pelos cinco primeiros dígitos do C P F do motorista. Use as setas para escolher o número de cada dígito e pressione OK para passar para o próximo, até completar os cinco dígitos. No exemplo, o C P F começa com nove nove nove nove nove, então o código é nove nove nove nove nove.",
       "cues": [
+        "Ele é formado",
         "Use as setas",
-        "pressione OK para passar",
-        "Repita até completar"
+        "No exemplo"
       ]
     },
     {
@@ -479,7 +479,7 @@
           [
             "Gerenciamento da lista",
             "Cadastrar código",
-            "Código + CNH",
+            "Código (CPF) + CNH",
             "Confirmar SIM"
           ]
         ],
