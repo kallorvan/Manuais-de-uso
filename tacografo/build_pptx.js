@@ -54,7 +54,8 @@ pres.defineSlideMaster({
     { image: { path: BRAND("logos_toliman_dinamo_azul.png"), ...LOGOS } },
     { placeholder: { options: { name: "title", type: "title", x: 0.6, y: 1.2, w: 8.3, h: 0.5, fontFace: THEME.headFontFace, fontSize: 24, color: C.text1, valign: "middle", align: "left", margin: 0 }, text: "" } },
   ],
-  slideNumber: { x: 0.6, y: 5.22, w: 0.5, h: 0.25, fontFace: THEME.bodyFontFace, fontSize: 9, color: HEX.accent5 },
+  // No vídeo cada slide vira vários estados; a numeração ficaria errada.
+  ...(process.env.VIDEO_TIMINGS ? {} : { slideNumber: { x: 0.6, y: 5.22, w: 0.5, h: 0.25, fontFace: THEME.bodyFontFace, fontSize: 9, color: HEX.accent5 } }),
 });
 pres.defineSlideMaster({
   title: "ENCERRAMENTO",
@@ -95,9 +96,11 @@ function chips(s, list, x, y) {
 }
 const chipsWidth = (list) => list.reduce((a, b) => a + (b.length > 2 ? 0.95 : 0.55) + 0.12, -0.12);
 
-function bullets(s, items, x, y, w, h, size = 13) {
+// Itens ainda não revelados (vídeo) ficam em branco para não mudar o layout.
+const HIDDEN = "FFFFFF";
+function bullets(s, items, x, y, w, h, size = 13, vis = () => true) {
   s.addText(
-    items.map((t, i) => ({ text: t, options: { bullet: true, breakLine: i < items.length - 1, paraSpaceAfter: 6 } })),
+    items.map((t, i) => ({ text: t, options: { bullet: true, breakLine: i < items.length - 1, paraSpaceAfter: 6, ...(vis(i) ? {} : { color: HIDDEN }) } })),
     { x, y, w, h, fontFace: BODY, fontSize: size, color: C.text1, valign: "top", margin: 0, isTextBox: true, objectName: "instrucoes" }
   );
 }
@@ -110,21 +113,15 @@ const sectionOf = (sl) => {
 };
 
 // ---------- Slides ----------
-let lastSection = null;
-for (const sl of R.slides) {
-  const sec = sectionOf(sl);
-  if (sec !== lastSection) { pres.addSection({ title: sec }); lastSection = sec; }
-  const master = sl.tipo === "encerramento" ? "ENCERRAMENTO" : (sl.tipo === "capa" || sl.tipo === "divisor") ? "ESCURO" : "CONTEUDO";
-  const s = pres.addSlide({ masterName: master, sectionTitle: sec });
-  if (sl.narracao) s.addNotes(sl.narracao);
-
+// V(i): o grupo i está visível? 0 = base; 1..n = itens revelados na ordem de sl.cues.
+function render(s, sl, V) {
   switch (sl.tipo) {
     case "capa":
     case "divisor": {
       const tag = sl.tipo === "capa" ? "MANUAL DE USO" : sl.parte.toUpperCase();
       s.addText(tag, { x: 0.737, y: 1.45, w: 5, h: 0.35, fontFace: HEAD, fontSize: 13, color: C.accent2, charSpacing: 3, margin: 0, isTextBox: true });
       s.addText(sl.titulo, { placeholder: "title" });
-      s.addText(sl.subtitulo, { placeholder: "body" });
+      if (V(1)) s.addText(sl.subtitulo, { placeholder: "body" });
       break;
     }
     case "encerramento":
@@ -133,8 +130,8 @@ for (const sl of R.slides) {
       s.addText(sl.titulo, { placeholder: "title" });
       kicker(s, "Antes de começar");
       framed(s, sl.imagens[0], 0.6, 1.88, 4.6, 2.59, "tela-inicial");
-      s.addText("TELA INICIAL", { x: 5.6, y: 1.85, w: 3.4, h: 0.3, fontFace: HEAD, fontSize: 11, color: C.accent3, charSpacing: 2, margin: 0, isTextBox: true });
-      s.addText(
+      if (V(1)) s.addText("TELA INICIAL", { x: 5.6, y: 1.85, w: 3.4, h: 0.3, fontFace: HEAD, fontSize: 11, color: C.accent3, charSpacing: 2, margin: 0, isTextBox: true });
+      if (V(1)) s.addText(
         sl.campos.flatMap(([k, v], i) => [
           { text: k, options: { fontFace: HEAD, color: HEX.accent1, breakLine: true } },
           { text: v, options: { color: HEX.dk1, breakLine: i < sl.campos.length - 1, paraSpaceAfter: 5 } },
@@ -144,6 +141,7 @@ for (const sl of R.slides) {
       let bx = 0.6;
       sl.botoes.forEach(([b, d], i) => {
         const w = 0.95;
+        if (!V(2 + i)) { bx += w + 1.8; return; }
         s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: bx, y: 4.68, w, h: 0.4, fill: { color: C.text2 }, line: { type: "none" }, rectRadius: 0.08, objectName: "botao-" + i });
         s.addText(b, { x: bx, y: 4.68, w, h: 0.4, fontSize: 13, bold: true, color: C.background1, align: "center", valign: "middle", margin: 0, isTextBox: true, fontFace: "Arial" });
         s.addText(d, { x: bx + w + 0.1, y: 4.6, w: 1.6, h: 0.56, fontFace: BODY, fontSize: 10, color: C.text1, valign: "middle", margin: 0, isTextBox: true });
@@ -157,6 +155,7 @@ for (const sl of R.slides) {
       const fills = [C.accent1, C.accent2, C.accent3];
       sl.etapas.forEach(([n, t, d], i) => {
         const x = 0.6 + i * 2.85;
+        if (!V(1 + i)) return;
         s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 1.9, w: 2.6, h: 2.95, fill: { color: C.background1 }, line: { color: HEX.lt2, width: 1 }, rectRadius: 0.12, shadow: { type: "outer", color: "1A2643", opacity: 0.12, blur: 8, offset: 2, angle: 90 }, objectName: "cartao-" + n });
         circleNum(s, n, x + 0.25, 2.12, 0.7, "num-" + n, fills[i]);
         s.addText(t, { x: x + 0.25, y: 2.95, w: 2.2, h: 0.45, fontFace: HEAD, fontSize: 18, color: C.text1, margin: 0, isTextBox: true });
@@ -169,8 +168,8 @@ for (const sl of R.slides) {
       kicker(s, `${sl.parte} · Passo ${sl.passo}`);
       framed(s, sl.imagens[0], 0.6, 1.88, 5.05, 2.84, "print");
       circleNum(s, sl.passo, 6.1, 1.88, 0.58, "num-passo");
-      bullets(s, sl.instrucoes, 6.1, 2.6, 3.0, 1.8);
-      chips(s, sl.botoes, 6.1, 4.47);
+      bullets(s, sl.instrucoes, 6.1, 2.6, 3.0, 1.8, 13, (i) => V(1 + i));
+      if (V(sl.instrucoes.length)) chips(s, sl.botoes, 6.1, 4.47);
       break;
     }
     case "passo_duplo": {
@@ -178,27 +177,28 @@ for (const sl of R.slides) {
       kicker(s, `${sl.parte} · Passo ${sl.passo}`);
       [0, 1].forEach((i) => {
         const x = 0.6 + i * 4.2;
+        if (!V(1 + i)) return;
         framed(s, sl.imagens[i], x, 1.88, 3.9, 2.19, "print-" + (i + 1));
         s.addText(sl.legendas[i], { x, y: 4.13, w: 3.9, h: 0.26, fontFace: BODY, fontSize: 10, italic: true, color: C.accent5, margin: 0, isTextBox: true });
       });
-      circleNum(s, sl.passo, 0.6, 4.55, 0.5, "num-passo");
+      if (V(3)) circleNum(s, sl.passo, 0.6, 4.55, 0.5, "num-passo");
       const cw = chipsWidth(sl.botoes);
       s.addText(
-        sl.instrucoes.map((t, i) => ({ text: t, options: { breakLine: i < sl.instrucoes.length - 1 } })),
+        sl.instrucoes.map((t, i) => ({ text: t, options: { breakLine: i < sl.instrucoes.length - 1, ...(V(3 + i) ? {} : { color: HIDDEN }) } })),
         { x: 1.25, y: 4.47, w: 8.6 - cw - 1.45, h: 0.66, fontFace: BODY, fontSize: 11, color: C.text1, valign: "middle", margin: 0, isTextBox: true, objectName: "instrucoes" }
       );
-      chips(s, sl.botoes, 8.7 - cw, 4.6);
+      if (V(2 + sl.instrucoes.length)) chips(s, sl.botoes, 8.7 - cw, 4.6);
       break;
     }
     case "resultado": {
       s.addText(sl.titulo, { placeholder: "title" });
       kicker(s, `${sl.parte} · Passo ${sl.passo}`);
       framed(s, sl.imagens[0], 0.6, 1.88, 5.05, 2.84, "print");
-      s.addShape(pres.shapes.OVAL, { x: 6.1, y: 1.88, w: 0.58, h: 0.58, fill: { color: C.accent3 }, line: { type: "none" }, objectName: "ok-icone" });
-      s.addText("✓", { x: 6.1, y: 1.88, w: 0.58, h: 0.58, fontSize: 22, bold: true, color: C.background1, align: "center", valign: "middle", margin: 0, isTextBox: true, fontFace: "Arial" });
-      s.addText(sl.mensagem, { x: 6.1, y: 2.6, w: 3.0, h: 1.2, fontFace: BODY, fontSize: 14, color: C.text1, valign: "top", margin: 0, isTextBox: true });
-      s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 6.1, y: 3.85, w: 2.75, h: 0.87, fill: { color: C.accent6 }, line: { type: "none" }, rectRadius: 0.08, objectName: "dica-fundo" });
-      s.addText([{ text: "Dica: ", options: { fontFace: HEAD } }, { text: sl.dica }], { x: 6.25, y: 3.85, w: 2.5, h: 0.87, fontFace: BODY, fontSize: 11, color: C.text1, valign: "middle", margin: 0, isTextBox: true });
+      if (V(1)) s.addShape(pres.shapes.OVAL, { x: 6.1, y: 1.88, w: 0.58, h: 0.58, fill: { color: C.accent3 }, line: { type: "none" }, objectName: "ok-icone" });
+      if (V(1)) s.addText("✓", { x: 6.1, y: 1.88, w: 0.58, h: 0.58, fontSize: 22, bold: true, color: C.background1, align: "center", valign: "middle", margin: 0, isTextBox: true, fontFace: "Arial" });
+      if (V(1)) s.addText(sl.mensagem, { x: 6.1, y: 2.6, w: 3.0, h: 1.2, fontFace: BODY, fontSize: 14, color: C.text1, valign: "top", margin: 0, isTextBox: true });
+      if (V(2)) s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 6.1, y: 3.85, w: 2.75, h: 0.87, fill: { color: C.accent6 }, line: { type: "none" }, rectRadius: 0.08, objectName: "dica-fundo" });
+      if (V(2)) s.addText([{ text: "Dica: ", options: { fontFace: HEAD } }, { text: sl.dica }], { x: 6.25, y: 3.85, w: 2.5, h: 0.87, fontFace: BODY, fontSize: 11, color: C.text1, valign: "middle", margin: 0, isTextBox: true });
       break;
     }
     case "trio": {
@@ -206,11 +206,12 @@ for (const sl of R.slides) {
       kicker(s, sl.parte);
       sl.imagens.forEach((f, i) => {
         const x = 0.6 + i * 2.9;
+        if (!V(1 + i)) return;
         framed(s, f, x, 1.88, 2.65, 1.49, "print-" + (i + 1));
         s.addText(sl.legendas[i], { x, y: 3.5, w: 2.65, h: 0.8, fontFace: BODY, fontSize: 12, color: C.text1, valign: "top", margin: 0, isTextBox: true });
       });
-      s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.6, y: 4.4, w: 8.1, h: 0.62, fill: { color: C.accent6 }, line: { type: "none" }, rectRadius: 0.08, objectName: "dica-fundo" });
-      s.addText([{ text: "Pronto: ", options: { fontFace: HEAD } }, { text: sl.dica }], { x: 0.8, y: 4.4, w: 7.8, h: 0.62, fontFace: BODY, fontSize: 12, color: C.text1, valign: "middle", margin: 0, isTextBox: true });
+      if (V(4)) s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.6, y: 4.4, w: 8.1, h: 0.62, fill: { color: C.accent6 }, line: { type: "none" }, rectRadius: 0.08, objectName: "dica-fundo" });
+      if (V(4)) s.addText([{ text: "Pronto: ", options: { fontFace: HEAD } }, { text: sl.dica }], { x: 0.8, y: 4.4, w: 7.8, h: 0.62, fontFace: BODY, fontSize: 12, color: C.text1, valign: "middle", margin: 0, isTextBox: true });
       break;
     }
     case "resumo": {
@@ -219,6 +220,7 @@ for (const sl of R.slides) {
       const fills = [C.accent1, C.accent2, C.accent3];
       sl.colunas.forEach(([t, items], i) => {
         const x = 0.6 + i * 2.85;
+        if (!V(1 + i)) return;
         s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 1.88, w: 2.6, h: 2.17, fill: { color: C.background1 }, line: { color: HEX.lt2, width: 1 }, rectRadius: 0.12, shadow: { type: "outer", color: "1A2643", opacity: 0.12, blur: 8, offset: 2, angle: 90 }, objectName: "resumo-" + i });
         circleNum(s, i + 1, x + 0.2, 2.0, 0.42, "resumo-num-" + i, fills[i]);
         s.addText(t, { x: x + 0.75, y: 2.0, w: 1.8, h: 0.42, fontFace: HEAD, fontSize: 14, color: C.text1, valign: "middle", margin: 0, isTextBox: true });
@@ -227,8 +229,8 @@ for (const sl of R.slides) {
           { x: x + 0.2, y: 2.55, w: 2.3, h: 1.42, fontFace: BODY, fontSize: 11, color: C.text1, valign: "top", margin: 0, isTextBox: true }
         );
       });
-      s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.6, y: 4.2, w: 8.1, h: 0.8, fill: { color: C.accent6 }, line: { type: "none" }, rectRadius: 0.08, objectName: "dicas-fundo" });
-      s.addText(
+      if (V(4)) s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.6, y: 4.2, w: 8.1, h: 0.8, fill: { color: C.accent6 }, line: { type: "none" }, rectRadius: 0.08, objectName: "dicas-fundo" });
+      if (V(4)) s.addText(
         [{ text: "Lembre-se:  ", options: { fontFace: HEAD } }, { text: sl.dicas.join("  •  ") }],
         { x: 0.8, y: 4.2, w: 7.7, h: 0.8, fontFace: BODY, fontSize: 12, color: C.text1, valign: "middle", margin: 0, isTextBox: true }
       );
@@ -237,7 +239,28 @@ for (const sl of R.slides) {
   }
 }
 
+// Modo vídeo (VIDEO_TIMINGS=arquivo.json): cada slide vira vários "estados",
+// um por momento em que um item novo aparece na narração.
+const TIMINGS = process.env.VIDEO_TIMINGS ? JSON.parse(fs.readFileSync(process.env.VIDEO_TIMINGS, "utf8")) : null;
+const states = [];
+let lastSection = null;
+for (const sl of R.slides) {
+  const sec = sectionOf(sl);
+  if (sec !== lastSection) { pres.addSection({ title: sec }); lastSection = sec; }
+  const master = sl.tipo === "encerramento" ? "ENCERRAMENTO" : (sl.tipo === "capa" || sl.tipo === "divisor") ? "ESCURO" : "CONTEUDO";
+  const times = TIMINGS ? (TIMINGS[sl.id] || []) : null; // tempo (s) em que cada cue aparece
+  const starts = times ? [...new Set([0, ...times])].sort((a, b) => a - b) : [null];
+  for (const t0 of starts) {
+    const V = times ? (i) => i === 0 || (times[i - 1] ?? 0) <= t0 : () => true;
+    const s = pres.addSlide({ masterName: master, sectionTitle: sec });
+    if (sl.narracao && !times) s.addNotes(sl.narracao);
+    render(s, sl, V);
+    states.push({ slide: sl.id, start: t0 ?? 0 });
+  }
+}
+
 (async () => {
+  if (TIMINGS) fs.writeFileSync(OUT.replace(/\.pptx$/, "_estados.json"), JSON.stringify(states));
   await pres.writeFile({ fileName: OUT });
   const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js");
   await applyTheme(OUT, THEME);

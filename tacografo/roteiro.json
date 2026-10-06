@@ -9,7 +9,10 @@
       "imagens": [
         "01_inicial.jpg"
       ],
-      "narracao": "Olá! Neste manual, você vai aprender, passo a passo, a usar o tacógrafo digital do veículo para cadastrar um novo motorista, conectar o motorista antes de iniciar a viagem e desconectar ao final da jornada. É rápido e simples. Vamos lá?"
+      "narracao": "Olá! Neste manual, você vai aprender, passo a passo, a usar o tacógrafo digital do veículo para cadastrar um novo motorista, conectar o motorista antes de iniciar a viagem e desconectar ao final da jornada. É rápido e simples. Vamos lá?",
+      "cues": [
+        "para cadastrar"
+      ]
     },
     {
       "id": 2,
@@ -50,7 +53,13 @@
           "Confirma a opção ou avança"
         ]
       ],
-      "narracao": "Antes de começar, conheça o painel. Na tela inicial aparecem a velocidade do veículo, a data e a hora, o odômetro e, no canto direito, o código do motorista conectado. Abaixo da tela ficam quatro botões. O botão Voltar retorna à tela anterior. As setas para cima e para baixo navegam pelos menus e alteram os números. E o botão OK confirma a opção escolhida."
+      "narracao": "Antes de começar, conheça o painel. Na tela inicial aparecem a velocidade do veículo, a data e a hora, o odômetro e, no canto direito, o código do motorista conectado. Abaixo da tela ficam quatro botões. O botão Voltar retorna à tela anterior. As setas para cima e para baixo navegam pelos menus e alteram os números. E o botão OK confirma a opção escolhida.",
+      "cues": [
+        "Na tela inicial",
+        "O botão Voltar",
+        "As setas",
+        "E o botão OK"
+      ]
     },
     {
       "id": 3,
@@ -73,7 +82,12 @@
           "Encerrar a identificação ao final da jornada"
         ]
       ],
-      "narracao": "O manual está dividido em três partes. Primeiro, como cadastrar um novo motorista na lista do tacógrafo, informando o código e a habilitação. Depois, como conectar o motorista antes de iniciar a viagem. E, por fim, como desconectar o motorista ao final da jornada."
+      "narracao": "O manual está dividido em três partes. Primeiro, como cadastrar um novo motorista na lista do tacógrafo, informando o código e a habilitação. Depois, como conectar o motorista antes de iniciar a viagem. E, por fim, como desconectar o motorista ao final da jornada.",
+      "cues": [
+        "Primeiro",
+        "Depois",
+        "E, por fim"
+      ]
     },
     {
       "id": 4,
@@ -81,7 +95,10 @@
       "parte": "Parte 1",
       "titulo": "Cadastrar um novo motorista",
       "subtitulo": "Feito uma única vez para cada motorista",
-      "narracao": "Parte um: cadastrar um novo motorista. Esse procedimento é feito apenas uma vez para cada motorista que vai utilizar o veículo."
+      "narracao": "Parte um: cadastrar um novo motorista. Esse procedimento é feito apenas uma vez para cada motorista que vai utilizar o veículo.",
+      "cues": [
+        "Esse procedimento"
+      ]
     },
     {
       "id": 5,
@@ -101,7 +118,11 @@
         "▼",
         "OK"
       ],
-      "narracao": "Com o veículo parado, a partir da tela inicial, use as setas até aparecer a opção Gerenciamento da lista de motorista. Em seguida, pressione OK para entrar."
+      "narracao": "Com o veículo parado, a partir da tela inicial, use as setas até aparecer a opção Gerenciamento da lista de motorista. Em seguida, pressione OK para entrar.",
+      "cues": [
+        "Com o veículo parado",
+        "Em seguida"
+      ]
     },
     {
       "id": 6,
@@ -126,7 +147,13 @@
         "▼",
         "OK"
       ],
-      "narracao": "Dentro desse menu existem duas opções: Remover código do motorista, que exclui alguém da lista, e Cadastrar código do motorista, que inclui um novo motorista. Use as setas até a opção Cadastrar e pressione OK."
+      "narracao": "Dentro desse menu existem duas opções: Remover código do motorista, que exclui alguém da lista, e Cadastrar código do motorista, que inclui um novo motorista. Use as setas até a opção Cadastrar e pressione OK.",
+      "cues": [
+        "Remover código",
+        "e Cadastrar código",
+        "Dentro desse menu",
+        "Use as setas"
+      ]
     },
     {
       "id": 7,
@@ -145,7 +172,11 @@
         "▼",
         "OK"
       ],
-      "narracao": "O tacógrafo vai perguntar se deseja gravar a informação do motorista no B V D R. Selecione a opção Sim, usando a seta para baixo, e confirme com OK."
+      "narracao": "O tacógrafo vai perguntar se deseja gravar a informação do motorista no B V D R. Selecione a opção Sim, usando a seta para baixo, e confirme com OK.",
+      "cues": [
+        "O tacógrafo vai perguntar",
+        "Selecione a opção Sim"
+      ]
     },
     {
       "id": 8,
@@ -166,7 +197,12 @@
         "▼",
         "OK"
       ],
-      "narracao": "Agora, digite o código do motorista. Use as setas para escolher o número de cada dígito e pressione OK para passar para o próximo. Repita até completar o código. No exemplo, o código utilizado foi nove nove nove nove nove."
+      "narracao": "Agora, digite o código do motorista. Use as setas para escolher o número de cada dígito e pressione OK para passar para o próximo. Repita até completar o código. No exemplo, o código utilizado foi nove nove nove nove nove.",
+      "cues": [
+        "Use as setas",
+        "pressione OK para passar",
+        "Repita até completar"
+      ]
     },
     {
       "id": 9,
@@ -191,7 +227,13 @@
         "▼",
         "OK"
       ],
-      "narracao": "Na sequência, aparece a tela Digite a habilitação do motorista. Informe o número da C N H usando o mesmo método: as setas escolhem o número e o OK avança para o próximo dígito, até preencher o campo inteiro."
+      "narracao": "Na sequência, aparece a tela Digite a habilitação do motorista. Informe o número da C N H usando o mesmo método: as setas escolhem o número e o OK avança para o próximo dígito, até preencher o campo inteiro.",
+      "cues": [
+        "Na sequência",
+        "até preencher",
+        "Na sequência",
+        "usando o mesmo método"
+      ]
     },
     {
       "id": 10,
@@ -211,7 +253,12 @@
         "▼",
         "OK"
       ],
-      "narracao": "O tacógrafo mostra o código e o número da C N H digitados. Confira com atenção. Se estiver tudo certo, selecione Sim e pressione OK. Se houver algum erro, escolha Não e digite novamente."
+      "narracao": "O tacógrafo mostra o código e o número da C N H digitados. Confira com atenção. Se estiver tudo certo, selecione Sim e pressione OK. Se houver algum erro, escolha Não e digite novamente.",
+      "cues": [
+        "O tacógrafo mostra",
+        "Confira com atenção",
+        "Se estiver tudo certo"
+      ]
     },
     {
       "id": 11,
@@ -224,7 +271,11 @@
       ],
       "mensagem": "A mensagem MOTORISTA CADASTRADO confirma que o motorista já está na lista",
       "dica": "Pressione VOLTAR até retornar à tela inicial",
-      "narracao": "Pronto! A mensagem Motorista cadastrado confirma que o novo motorista já faz parte da lista do tacógrafo. Pressione Voltar até retornar à tela inicial."
+      "narracao": "Pronto! A mensagem Motorista cadastrado confirma que o novo motorista já faz parte da lista do tacógrafo. Pressione Voltar até retornar à tela inicial.",
+      "cues": [
+        "A mensagem",
+        "Pressione Voltar"
+      ]
     },
     {
       "id": 12,
@@ -232,7 +283,10 @@
       "parte": "Parte 2",
       "titulo": "Conectar o motorista",
       "subtitulo": "Antes de iniciar cada viagem",
-      "narracao": "Parte dois: conectar o motorista. Faça isso sempre antes de iniciar a viagem, para que o tacógrafo registre a jornada no nome correto."
+      "narracao": "Parte dois: conectar o motorista. Faça isso sempre antes de iniciar a viagem, para que o tacógrafo registre a jornada no nome correto.",
+      "cues": [
+        "Faça isso"
+      ]
     },
     {
       "id": 13,
@@ -257,7 +311,13 @@
         "▼",
         "OK"
       ],
-      "narracao": "Na tela inicial, use as setas até encontrar a opção Menu do motorista e pressione OK."
+      "narracao": "Na tela inicial, use as setas até encontrar a opção Menu do motorista e pressione OK.",
+      "cues": [
+        "Na tela inicial",
+        "Menu do motorista",
+        "Na tela inicial",
+        "e pressione OK"
+      ]
     },
     {
       "id": 14,
@@ -282,7 +342,13 @@
         "▼",
         "OK"
       ],
-      "narracao": "Dentro do Menu do motorista, navegue até a opção Conecte-se e pressione OK. Atenção para não confundir com a opção Viagem finalizada, que aparece logo ao lado."
+      "narracao": "Dentro do Menu do motorista, navegue até a opção Conecte-se e pressione OK. Atenção para não confundir com a opção Viagem finalizada, que aparece logo ao lado.",
+      "cues": [
+        "navegue até a opção Conecte-se",
+        "Atenção para não confundir",
+        "navegue até a opção",
+        "Atenção"
+      ]
     },
     {
       "id": 15,
@@ -301,7 +367,11 @@
         "▼",
         "OK"
       ],
-      "narracao": "O tacógrafo oferece duas formas de identificação: Manual ou Lista de motoristas. Selecione a opção dois, Lista de motoristas, e pressione OK."
+      "narracao": "O tacógrafo oferece duas formas de identificação: Manual ou Lista de motoristas. Selecione a opção dois, Lista de motoristas, e pressione OK.",
+      "cues": [
+        "O tacógrafo oferece",
+        "Selecione a opção dois"
+      ]
     },
     {
       "id": 16,
@@ -326,7 +396,13 @@
         "▼",
         "OK"
       ],
-      "narracao": "Aparece a lista com todos os motoristas cadastrados no veículo. Use as setas até destacar o seu código e pressione OK."
+      "narracao": "Aparece a lista com todos os motoristas cadastrados no veículo. Use as setas até destacar o seu código e pressione OK.",
+      "cues": [
+        "Aparece a lista",
+        "até destacar",
+        "Aparece a lista",
+        "Use as setas"
+      ]
     },
     {
       "id": 17,
@@ -350,7 +426,13 @@
         "▼",
         "OK"
       ],
-      "narracao": "Confira o código e a C N H, selecione Sim e pressione OK. De volta à tela inicial, observe que o seu código agora aparece no canto direito. Isso indica que você está conectado e pronto para iniciar a viagem."
+      "narracao": "Confira o código e a C N H, selecione Sim e pressione OK. De volta à tela inicial, observe que o seu código agora aparece no canto direito. Isso indica que você está conectado e pronto para iniciar a viagem.",
+      "cues": [
+        "Confira o código",
+        "De volta à tela inicial",
+        "Confira o código",
+        "De volta à tela inicial"
+      ]
     },
     {
       "id": 18,
@@ -358,7 +440,10 @@
       "parte": "Parte 3",
       "titulo": "Desconectar o motorista",
       "subtitulo": "Ao final da jornada",
-      "narracao": "Parte três: desconectar o motorista, ao final da jornada de trabalho."
+      "narracao": "Parte três: desconectar o motorista, ao final da jornada de trabalho.",
+      "cues": [
+        "ao final da jornada"
+      ]
     },
     {
       "id": 19,
@@ -376,7 +461,13 @@
         "2. DESCONECTAR MOTORISTA? Selecione SIM e pressione OK",
         "3. Aparece MOTORISTA DESCONECTADO"
       ],
-      "narracao": "Na tela inicial, use as setas até o Menu do motorista e pressione OK. O tacógrafo pergunta: Desconectar motorista? Selecione Sim e pressione OK. A mensagem Motorista desconectado confirma que a sua jornada foi encerrada."
+      "narracao": "Na tela inicial, use as setas até o Menu do motorista e pressione OK. O tacógrafo pergunta: Desconectar motorista? Selecione Sim e pressione OK. A mensagem Motorista desconectado confirma que a sua jornada foi encerrada.",
+      "cues": [
+        "Na tela inicial",
+        "O tacógrafo pergunta",
+        "A mensagem Motorista desconectado",
+        "confirma que a sua jornada"
+      ]
     },
     {
       "id": 20,
@@ -414,7 +505,13 @@
         "Faça os procedimentos com o veículo parado",
         "Sempre confira o código na tela inicial antes de sair"
       ],
-      "narracao": "Recapitulando: para cadastrar, acesse Gerenciamento da lista, escolha Cadastrar, informe o código e a C N H e confirme. Para conectar, vá ao Menu do motorista, escolha Conecte-se, depois Lista de motoristas, selecione o seu código e confirme. Para desconectar, vá ao Menu do motorista e confirme a desconexão. Lembre-se: faça tudo com o veículo parado e sempre confira o seu código na tela inicial antes de sair. Boa viagem!"
+      "narracao": "Recapitulando: para cadastrar, acesse Gerenciamento da lista, escolha Cadastrar, informe o código e a C N H e confirme. Para conectar, vá ao Menu do motorista, escolha Conecte-se, depois Lista de motoristas, selecione o seu código e confirme. Para desconectar, vá ao Menu do motorista e confirme a desconexão. Lembre-se: faça tudo com o veículo parado e sempre confira o seu código na tela inicial antes de sair. Boa viagem!",
+      "cues": [
+        "para cadastrar",
+        "Para conectar",
+        "Para desconectar",
+        "Lembre-se"
+      ]
     },
     {
       "id": 21,
