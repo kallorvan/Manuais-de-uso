@@ -8,7 +8,7 @@ const pptxgen = require("pptxgenjs");
 const DIR = __dirname;
 const R = JSON.parse(fs.readFileSync(path.join(DIR, "roteiro.json"), "utf8"));
 const OUT = process.argv[2] || path.join(DIR, "Manual_Tacografo_Digital.pptx");
-const IMG = (f) => path.join(DIR, "prints", f);
+const IMG = (f) => path.join(DIR, "telas", f); // telas redesenhadas (render_telas.py)
 const BRAND = (f) => path.join(DIR, "modelo", f);
 
 // Cores e fontes do Modelo_Apresentacao
