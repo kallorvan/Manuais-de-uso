@@ -188,19 +188,19 @@
         "06_codigo.jpg"
       ],
       "instrucoes": [
-        "O código são os 5 primeiros dígitos do CPF do motorista",
-        "Use ▲ ou ▼ para escolher cada número e OK para avançar",
-        "Exemplo: CPF que começa com 999.99 → código 99999"
+        "Código: 4 ou 5 primeiros dígitos do CPF, conforme o modelo",
+        "Cada * é um dígito: ▲ ▼ escolhem, OK avança",
+        "Exemplo: CPF 999.99… → código 99999"
       ],
       "botoes": [
         "▲",
         "▼",
         "OK"
       ],
-      "narracao": "Agora, digite o código do motorista. Ele é formado pelos cinco primeiros dígitos do C P F do motorista. Use as setas para escolher o número de cada dígito e pressione OK para passar para o próximo, até completar os cinco dígitos. No exemplo, o C P F começa com nove nove nove nove nove, então o código é nove nove nove nove nove.",
+      "narracao": "Agora, digite o código do motorista. Ele é formado pelos primeiros dígitos do C P F do motorista: quatro ou cinco dígitos, dependendo do modelo do tacógrafo. Cada asterisco na tela representa um dígito a preencher. Use as setas para escolher o número de cada dígito e pressione OK para passar para o próximo. No exemplo, o modelo pede cinco dígitos e o C P F começa com nove nove nove nove nove, então o código é nove nove nove nove nove.",
       "cues": [
         "Ele é formado",
-        "Use as setas",
+        "Cada asterisco",
         "No exemplo"
       ]
     },
